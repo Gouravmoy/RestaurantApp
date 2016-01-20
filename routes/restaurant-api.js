@@ -14,27 +14,17 @@ router.route('/restaurant')
 
     //get all restaurants
     .get(function(req,res){
-
+        
         restaurantDao.findAllRestaurants(function(err,resturants){
 
             if(err){
-                return res.send(500,err);
+                console.error(err);
+                return res.status(500).send(err);
             }
 
             return res.send(resturants);
         });
 
-        /*Restaurant.find(function(err,restaurants){
-
-            if(err){
-                return res.send(500,err);
-            }
-
-            return res.send(restaurants);
-
-        });
-*/
-        //res.send("GET all Restaurants");
     })
 
     //create a restaurants
