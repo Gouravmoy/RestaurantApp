@@ -11,7 +11,7 @@ var MenuOverView=require('./menuoverview');
 
 
 var restaurantSchema=new Schema({
-    _id:Schema.type.ObjectId,
+    _id:Schema.Types.ObjectId,
     resturant_name: String,
     resturant_image:{
         thumbnail:String,
@@ -26,11 +26,11 @@ var restaurantSchema=new Schema({
         state:String
 
     },
-    resturant_menu: {type:Schema.type.ObjectId,ref:MenuOverView}
+    resturant_menu: {type:Schema.Types.ObjectId,ref:MenuOverView}
 
 });
 
 
 var Restaurant=mongoose.model('Restaurant',restaurantSchema);
 
-model.exports=Restaurant;
+module.exports=Restaurant;

@@ -5,9 +5,9 @@ var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 
 var menuOverView=new Schema({
-    _id:Schema.type.ObjectId,
+    _id:Schema.Types.ObjectId,
     menu_overview:[{"category":String,"sub_category":[String]}]
 });
 
-var MenuOverView=mongoose.module('MenuOverView',menuOverView);
+var MenuOverView=mongoose.model('MenuOverView',menuOverView);
 module.exports=MenuOverView;

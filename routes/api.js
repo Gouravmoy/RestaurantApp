@@ -7,11 +7,25 @@
 var express = require('express');
 var router = express.Router();
 
+var Restaurant=require('../models/restaurant');
+
+
 router.route('/restaurant')
 
     //get all restaurants
     .get(function(req,res){
-        res.send("GET all Restaurants");
+
+        Restaurant.find(function(err,restaurants){
+
+            if(err){
+                return res.send(500,err);
+            }
+
+            return res.send(restaurants);
+
+        });
+
+        //res.send("GET all Restaurants");
     })
 
     //create a restaurants

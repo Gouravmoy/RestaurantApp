@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
-var menuapi=require('./routes/menuapi')
+var menuapi=require('./routes/menuapi');
 
 var app = express();
 
@@ -26,6 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/api', api);
 app.use('/api',menuapi);
+
+
+var mongoose=require('mongoose');
+mongoose.connect("mongodb://admin:admin@ds047345.mongolab.com:47345/restauranttestdb");
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
