@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var api = require('./routes/api');
-var menuapi=require('./routes/menuapi');
+var restaurantApi = require('./routes/restaurant-api');
+var menuApi=require('./routes/menu-api');
 
 var app = express();
 
@@ -24,8 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/api', api);
-app.use('/api',menuapi);
+app.use('/api', restaurantApi);
+app.use('/api',menuApi);
 
 
 var mongoose=require('mongoose');

@@ -7,7 +7,7 @@ var mongoose=require('mongoose');
 
 var Schema=mongoose.Schema;
 
-var MenuOverView=require('./menuoverview');
+var MenuOverView=require('./menu-overview');
 
 
 var restaurantSchema=new Schema({

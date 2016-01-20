@@ -7,7 +7,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Restaurant=require('../models/restaurant');
+var restaurantDao=require('../daos/restaurant-dao');
 
 
 router.route('/restaurant')
@@ -15,7 +15,16 @@ router.route('/restaurant')
     //get all restaurants
     .get(function(req,res){
 
-        Restaurant.find(function(err,restaurants){
+        restaurantDao.findAllRestaurants(function(err,resturants){
+
+            if(err){
+                return res.send(500,err);
+            }
+
+            return res.send(resturants);
+        });
+
+        /*Restaurant.find(function(err,restaurants){
 
             if(err){
                 return res.send(500,err);
@@ -24,7 +33,7 @@ router.route('/restaurant')
             return res.send(restaurants);
 
         });
-
+*/
         //res.send("GET all Restaurants");
     })
 
