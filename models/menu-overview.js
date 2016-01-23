@@ -4,10 +4,10 @@
 var mongoose=require('mongoose');
 var Schema=mongoose.Schema;
 
-var menuOverView=new Schema({
+var menuOverViewSchema=new Schema({
     _id:Schema.Types.ObjectId,
-    menu_overview:[{"category":String,"sub_category":[String]}]
+    menu_overview:[{category:String,sub_category:[String]}]
 });
 
-var MenuOverView=mongoose.model('MenuOverView',menuOverView);
+var MenuOverView=mongoose.model('Menu_overview',menuOverViewSchema);
 module.exports=MenuOverView;

@@ -12,12 +12,13 @@ var MenuOverView=require('./menu-overview');
 
 var restaurantSchema=new Schema({
     _id:Schema.Types.ObjectId,
-    resturant_name: String,
-    resturant_image:{
+   restaurant_name: String,
+    restaurant_image:{
         thumbnail:String,
         "profile":String
     },
-    beacon_ids:[String],
+    beacon_nameSp:String,
+    beacon_instance:[String],
     address:{
         street:String,
         city:String,
@@ -26,8 +27,7 @@ var restaurantSchema=new Schema({
         state:String
 
     },
-    resturant_menu: {type:Schema.Types.ObjectId,ref:MenuOverView}
-
+    restaurant_menu: {type:Schema.Types.ObjectId,ref:MenuOverView}
 });
 
 

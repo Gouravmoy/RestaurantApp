@@ -14,15 +14,15 @@ router.route('/restaurant')
 
     //get all restaurants
     .get(function(req,res){
-        
-        restaurantDao.findAllRestaurants(function(err,resturants){
+
+        restaurantDao.findAllRestaurants(function(err,restaurantList){
 
             if(err){
                 console.error(err);
                 return res.status(500).send(err);
             }
 
-            return res.send(resturants);
+            return res.send(restaurantList);
         });
 
     })
@@ -32,11 +32,24 @@ router.route('/restaurant')
         res.send("Create a restaurant");
     });
 
-router.route('/restaurant/:id')
+router.route('/restaurant/id/:id')
 
 
     //get a specific restaurant
     .get(function(req,res){
+
+        restaurantDao.findRestaurantById(req.params.id,function(err,restaurantList){
+
+            if(err){
+
+                console.log(err);
+                return res.status(500).send(err);
+            }
+
+
+            return res.send(restaurantList);
+
+        })
 
     })
 
@@ -50,10 +63,21 @@ router.route('/restaurant/:id')
 
     });
 
-router.route('restaurant/beacon/:beaconId')
+router.route('/restaurant/beacon/:beaconId')
 
     // get a specific restaurant by beacon id
     .get(function(req,res){
+
+        restaurantDao.findRestaurantByBeaconInstance(req.params.beaconId,function(err,restaurantList){
+
+            if(err){
+                console.log(err);
+               return res.status(500).send(err);
+            }
+
+
+            return res.send(restaurantList);
+        })
 
     })
     // Add a beacon to a restaurant
